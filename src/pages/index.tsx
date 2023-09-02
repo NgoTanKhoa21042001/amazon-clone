@@ -6,13 +6,13 @@ interface Props {
   productData: ProductProps;
 }
 export default function Home({ productData }: Props) {
-  console.log(productData);
-
   return (
     <main>
       <div className="max-w-screen-2xl mx-auto">
         <Banner />
-        <Product />
+        <div className="relative md:-mt020 lgl:-mt-32 xl:-mt-60 z-20 mb-10">
+          <Product productData={productData} />
+        </div>
       </div>
     </main>
   );
