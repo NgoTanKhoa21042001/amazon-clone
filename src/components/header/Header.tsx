@@ -6,7 +6,15 @@ import { HiOutlineSearch } from "react-icons/hi";
 import cartIcon from "../../images/cartIcon.png";
 import { BiCaretDown } from "react-icons/bi";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../type";
 const Header = () => {
+  const { productData, favoriteData } = useSelector(
+    (state: StateProps) => state.next
+  );
+
+  console.log(favoriteData);
+
   return (
     <div className="w-full h-20 bg-amazon_blue text-white text-lightText sticky top-0 z-50">
       <div className="h-full w-full flex items-center mx-auto justify-between gap-1 mdl:gap-3 px-4">
@@ -63,7 +71,7 @@ const Header = () => {
           />
           <p className="text-xs font-bold mt-3">Cart</p>
           <span className="absolute left-[30px] top-2 text-amazon_yellow text-sm font-semibold">
-            0
+            {productData ? productData.length : 0}
           </span>
         </Link>
       </div>
