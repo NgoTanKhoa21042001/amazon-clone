@@ -40,19 +40,19 @@ export const nextSlice = createSlice({
       }
     },
     increaseQuantity: (state, action) => {
-      const existingProduct = state.favoriteData.find(
+      const existingProduct = state.productData.find(
         (item: StoreProduct) => item._id === action.payload._id
       );
       existingProduct && existingProduct.quantity++;
     },
-    decreaseCartQuantity: (state, action) => {
-      const existingProduct = state.favoriteData.find(
+    decreaseQuantity: (state, action) => {
+      const existingProduct = state.productData.find(
         (item: StoreProduct) => item._id === action.payload._id
       );
       if (existingProduct?.quantity == 1) {
         existingProduct.quantity = 1;
       } else {
-        // ! là toán tử bang. Nó được sử dụng để chắc chắn rằng biến existingProduct không phải là null.
+        // ! là toán tử bang. Nó được sử dụng để chắn rằng biến existingProduct không phải là null.
         existingProduct!.quantity--;
       }
     },
@@ -61,7 +61,7 @@ export const nextSlice = createSlice({
         (item) => item._id !== action.payload
       );
     },
-    resetCart: (state, action) => {
+    resetCart: (state) => {
       state.productData = [];
     },
     addUser: (state, action) => {
@@ -79,7 +79,7 @@ export const {
   addtoCart,
   addToFavorite,
   addUser,
-  decreaseCartQuantity,
+  decreaseQuantity,
   deleteProduct,
   increaseQuantity,
   removeUser,
