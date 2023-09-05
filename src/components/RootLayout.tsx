@@ -7,13 +7,13 @@ interface Props {
 }
 const RootLayout = ({ children }: Props) => {
   return (
-    <div>
+    <>
       {/* la mặc định chuyển trang nào cũng giữ phần Header và bottom Header */}
       <Header />
       <BotoomHeader />
       {children}
       <Footer />
-    </div>
+    </>
   );
 };
 
