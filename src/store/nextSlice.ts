@@ -67,7 +67,7 @@ export const nextSlice = createSlice({
     addUser: (state, action) => {
       state.userInfo = action.payload;
     },
-    removeUser: (state, action) => {
+    removeUser: (state) => {
       state.userInfo = null;
     },
     setAllProducts: (state, action) => {
