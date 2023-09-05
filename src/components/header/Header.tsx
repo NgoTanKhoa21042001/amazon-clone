@@ -33,7 +33,7 @@ const Header = () => {
   // console.log(favoriteData);
 
   return (
-    <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-10">
+    <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
       <div className="h-full w-full flex items-center mx-auto justify-between gap-1 mdl:gap-3 px-4">
         {/* logo */}
         <Link
