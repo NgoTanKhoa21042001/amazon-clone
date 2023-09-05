@@ -53,33 +53,33 @@ const Product = ({ productData }: any) => {
                   height={300}
                   className="w-full h-full object-cover scale-90 hover:scale-100 transition-transform duration-300"
                 />{" "}
-                <div className="w-12 h-24 absolute bottom-10 right-0 border-[1px] border-gray-400 bg-white rounded-md flex flex-col group-hover:translate-x-0 duration-300 transition-transform translate-x-20">
-                  <span className="w-full h-full border-b-[1px] text-lg border-b-gray-400 flex items-center justify-center hover:bg-amazon_yellow cursor-pointer duration-300">
-                    <HiShoppingCart />
-                  </span>
-                  <span
-                    onClick={() =>
-                      dispatch(
-                        addToFavorite({
-                          _id: _id,
-                          title: title,
-                          brand: brand,
-                          category: category,
-                          description: description,
-                          image: image,
-                          isNew: isNew,
-                          oldPrice: oldPrice,
-                          price: price,
-                          quantity: 1,
-                        })
-                      )
-                    }
-                    className="w-full h-full border-b-[1px] text-lg border-b-gray-400 flex items-center justify-center hover:bg-amazon_yellow cursor-pointer duration-300"
-                  >
-                    <FaHeart />
-                  </span>
-                </div>
               </Link>
+              <div className="w-12 h-24 absolute bottom-10 right-0 border-[1px] border-gray-400 bg-white rounded-md flex flex-col group-hover:translate-x-0 duration-300 transition-transform translate-x-20">
+                <span className="w-full h-full border-b-[1px] text-lg border-b-gray-400 flex items-center justify-center hover:bg-amazon_yellow cursor-pointer duration-300">
+                  <HiShoppingCart />
+                </span>
+                <span
+                  onClick={() =>
+                    dispatch(
+                      addToFavorite({
+                        _id: _id,
+                        title: title,
+                        brand: brand,
+                        category: category,
+                        description: description,
+                        image: image,
+                        isNew: isNew,
+                        oldPrice: oldPrice,
+                        price: price,
+                        quantity: 1,
+                      })
+                    )
+                  }
+                  className="w-full h-full border-b-[1px] text-lg border-b-gray-400 flex items-center justify-center hover:bg-amazon_yellow cursor-pointer duration-300"
+                >
+                  <FaHeart />
+                </span>
+              </div>
               {/* Price */}
               {isNew && (
                 <p className="absolute top-0 right-0 text-amazon_blue font-medium tracking-wide text-xs animate-bounce">
