@@ -29,16 +29,29 @@ const Cartpayment = () => {
         </p>
       </div>
       {/* total */}
-      <div className="flex items-center justify-between px-2 font-semibold">
+      <p className="flex items-center justify-between px-2 font-semibold">
         Total:
         <span className="font-bold text-lg">
           <FormattedPrice amount={totalAmount} />
         </span>
-      </div>
+      </p>
       {/* button */}
-      <button className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black duration-300">
-        Proceed to Buy
-      </button>
+      {userInfo ? (
+        <div className="flex flex-col items-center">
+          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black duration-300">
+            Proceed to Buy
+          </button>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center">
+          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black duration-300">
+            Proceed to Buy
+          </button>
+          <p className="text-xs mt-1  text-red-500 font-semibold animate-bounce">
+            Please login to continue
+          </p>
+        </div>
+      )}
     </div>
   );
 };

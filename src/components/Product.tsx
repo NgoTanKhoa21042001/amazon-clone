@@ -27,7 +27,7 @@ const Product = ({ productData }: any) => {
             key={_id}
             className="w-full bg-white text-black p-4 border border-gray-300 rounded-lg group shadow-lg overflow-hidden"
           >
-            <div className="w-full h-[260px] relative">
+            <div className="w-full h-[260px] relative cursor-pointer">
               {" "}
               <Image
                 src={image}
