@@ -7,16 +7,20 @@ import cartIcon from "../../images/cartIcon.png";
 import { BiCaretDown } from "react-icons/bi";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { StateProps } from "../../../type";
 const Header = () => {
+  const { data: session, status } = useSession();
   const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next
   );
 
+  console.log(session);
+
   console.log(favoriteData);
 
   return (
-    <div className="w-full h-20 bg-amazon_blue text-white text-lightText sticky top-0 z-50">
+    <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
       <div className="h-full w-full flex items-center mx-auto justify-between gap-1 mdl:gap-3 px-4">
         {/* logo */}
         <Link
@@ -45,7 +49,10 @@ const Header = () => {
           </span>
         </div>
         {/* signin */}
-        <div className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] text-xs text-gray-100 flex flex-col justify-center">
+        <div
+          onClick={() => signIn()}
+          className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] text-xs text-gray-100 flex flex-col justify-center"
+        >
           <p>Hello, sign in</p>
           <p className="font-bold flex items-center">
             Account & Lists{" "}
