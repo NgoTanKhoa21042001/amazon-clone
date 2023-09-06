@@ -14,7 +14,7 @@ import SideNav from "./SideNav";
 interface RefEventProp {}
 
 const BotoomHeader = () => {
-  const ref = useRef();
+  const ref = useRef<any>(null);
   const { userInfo } = useSelector((state: StateProps) => state.next);
   const [sideBar, setSideBar] = useState(false);
   useEffect(() => {
