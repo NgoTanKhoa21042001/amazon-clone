@@ -25,8 +25,9 @@ const Cartpayment = () => {
   );
   const { data: session } = useSession();
   const handleCheckout = async () => {
+    // xử lý việc thanh toán bằng Stripe.
     const stripe = await stripePromise;
-
+    // thực hiện một yêu cầu HTTP POST đến API của checkout. Yêu cầu này chứa các thông tin về sản phẩm và email của người dùng.
     const response = await fetch("/api/checkout", {
       method: "POST",
       headers: {
@@ -41,6 +42,7 @@ const Cartpayment = () => {
 
     // Redirecting user/customer to Stripe Checkout
     const result: any = await stripe?.redirectToCheckout({
+      // lấy session ID từ phản hồi của API.
       sessionId: checkoutSession.id,
     });
     if (result.error) {

@@ -27,6 +27,7 @@ export default async function handler(
     },
     line_items: modifiedItems,
     mode: "payment",
+    // khi success thành công thì chuyển qua page success
     success_url: `${process.env.NEXTAUTH_URL}/success`,
     cancel_url: `${process.env.NEXTAUTH_URL}/checkout`,
     metadata: {

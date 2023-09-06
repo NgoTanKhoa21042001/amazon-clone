@@ -19,16 +19,6 @@ export const nextSlice = createSlice({
   name: "next",
   initialState,
   reducers: {
-    addtoCart: (state, action) => {
-      const existingProduct = state.productData.find(
-        (item: StoreProduct) => item._id === action.payload._id
-      );
-      if (existingProduct) {
-        existingProduct.quantity += action.payload.quantity;
-      } else {
-        state.productData.push(action.payload);
-      }
-    },
     addToFavorite: (state, action) => {
       const existingProduct = state.favoriteData.find(
         (item: StoreProduct) => item._id === action.payload._id
@@ -37,6 +27,16 @@ export const nextSlice = createSlice({
         existingProduct.quantity += action.payload.quantity;
       } else {
         state.favoriteData.push(action.payload);
+      }
+    },
+    addToCart: (state, action) => {
+      const existingProduct = state.productData.find(
+        (item: StoreProduct) => item._id === action.payload._id
+      );
+      if (existingProduct) {
+        existingProduct.quantity += action.payload.quantity;
+      } else {
+        state.productData.push(action.payload);
       }
     },
     increaseQuantity: (state, action) => {
@@ -49,10 +49,9 @@ export const nextSlice = createSlice({
       const existingProduct = state.productData.find(
         (item: StoreProduct) => item._id === action.payload._id
       );
-      if (existingProduct?.quantity == 1) {
+      if (existingProduct?.quantity === 1) {
         existingProduct.quantity = 1;
       } else {
-        // ! là toán tử bang. Nó được sử dụng để chắn rằng biến existingProduct không phải là null.
         existingProduct!.quantity--;
       }
     },
@@ -61,9 +60,19 @@ export const nextSlice = createSlice({
         (item) => item._id !== action.payload
       );
     },
+    deleteFavorite: (state, action) => {
+      state.favoriteData = state.favoriteData.filter(
+        (item) => item._id !== action.payload
+      );
+    },
+
     resetCart: (state) => {
       state.productData = [];
     },
+    resetFavoriteData: (state) => {
+      state.favoriteData = [];
+    },
+
     addUser: (state, action) => {
       state.userInfo = action.payload;
     },
@@ -71,19 +80,22 @@ export const nextSlice = createSlice({
       state.userInfo = null;
     },
     setAllProducts: (state, action) => {
-      state.productData = action.payload;
+      state.allProducts = action.payload;
     },
   },
 });
+
 export const {
-  addtoCart,
+  addToCart,
   addToFavorite,
-  addUser,
+  increaseQuantity,
   decreaseQuantity,
   deleteProduct,
-  increaseQuantity,
-  removeUser,
   resetCart,
+  addUser,
+  removeUser,
   setAllProducts,
+  deleteFavorite,
+  resetFavoriteData,
 } = nextSlice.actions;
 export default nextSlice.reducer;
