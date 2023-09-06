@@ -15,6 +15,7 @@ const DynamicPage = () => {
 
   useEffect(() => {
     // đi theo cái query tương ứng với product
+    // product details
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);

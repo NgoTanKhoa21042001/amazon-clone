@@ -18,6 +18,7 @@ const BotoomHeader = () => {
   const { userInfo } = useSelector((state: StateProps) => state.next);
   const [sideBar, setSideBar] = useState(false);
   useEffect(() => {
+    // ấn vào bên ngoài thì đóng menu
     document.body.addEventListener("click", (event: any) => {
       if (event.target.contains(ref.current)) {
         setSideBar(false);
