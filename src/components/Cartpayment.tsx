@@ -68,7 +68,7 @@ const Cartpayment = () => {
         </span>
       </p>
       {/* button */}
-      {userInfo ? (
+      {/* {userInfo ? (
         <div className="flex flex-col items-center">
           <button
             onClick={handleCheckout}
@@ -86,7 +86,13 @@ const Cartpayment = () => {
             Please login to continue
           </p>
         </div>
-      )}
+      )} */}
+      <button
+        onClick={handleCheckout}
+        className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black duration-300"
+      >
+        Proceed to Buy
+      </button>
     </div>
   );
 };
